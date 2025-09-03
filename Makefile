@@ -7,6 +7,9 @@ develop:
 lint:
 	npx eslint .
 
+fix:
+	npx eslint --fix .
+
 build:
 	NODE_ENV=production npm run build
 

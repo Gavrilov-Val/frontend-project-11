@@ -1,24 +1,24 @@
-import { resolve } from 'path'
+// import { resolve } from 'path'
 
 export default {
   // root: resolve(__dirname, 'src'),
   build: {
-    outDir: './dist'
+    outDir: './dist',
   },
   server: {
-    port: 5173
+    port: 5173,
   },
   // Optional: Silence Sass deprecation warnings. See note below.
   css: {
-     preprocessorOptions: {
-        scss: {
-          silenceDeprecations: [
-            'import',
-            'mixed-decls',
-            'color-functions',
-            'global-builtin',
-          ],
-        },
-     },
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: [
+          'import',
+          'mixed-decls',
+          'color-functions',
+          'global-builtin',
+        ],
+      },
+    },
   },
 }
