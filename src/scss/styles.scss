@@ -1,0 +1,91 @@
+@import "bootstrap/scss/bootstrap";
+
+// Цветовые переменные
+$bg-dark: #1f2328;
+$accent: #0d6efd;
+$text-light: #f8f9fa;
+$text-muted: #adb5bd;
+
+// Основные стили
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #212529;
+}
+
+// Хедер (темная зона сверху)
+.bg-dark {
+  background-color: $bg-dark !important;
+}
+
+h1.display-3 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  color: lighten($text-light, 10%);
+}
+
+// Форма
+.rss-form {
+  margin-top: 1rem;
+
+  .form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    transition: box-shadow 0.2s ease-in-out;
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($accent, 0.25);
+    }
+  }
+
+  button {
+    border-radius: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+// Сообщение об ошибке/фидбек
+.feedback {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+// Контейнеры с постами и фидами
+.posts,
+.feeds {
+  padding: 1rem;
+}
+
+.posts {
+  .card {
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+  }
+}
+
+.feeds {
+  .list-group-item {
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Футер
+.footer {
+  font-size: 0.9rem;
+  color: $text-muted;
+  background-color: #f8f9fa;
+
+  a {
+    color: $accent;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
