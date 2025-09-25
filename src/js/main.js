@@ -1,5 +1,10 @@
-// Import our custom CSS
-import '../scss/styles.scss'
+import initApp from './app.js'
 
-// Import all of Bootstrap’s JS
-// import * as bootstrap from 'bootstrap'
+// Добавляем обработчик события DOMContentLoaded
+const initialize = () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    initApp()
+  })
+}
+
+initialize()
