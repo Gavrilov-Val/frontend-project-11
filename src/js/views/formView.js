@@ -39,44 +39,47 @@ class FormView {
 
     // Обработка ошибок
     if (formState.processState === 'error' && formState.error) {
-      this.showValidation(formState.error);
+      this.showValidation(formState.error, 'error');
     } else if (formState.processState === 'finished') {
+      // Показываем успешное уведомление
+      this.showValidation('RSS успешно загружен', 'success');
+      
       // Очистка после успешной отправки
       input.value = '';
       input.focus();
-      this.clearValidation();
+      
+      // Автоматически скрываем успешное уведомление через 3 секунды
+      setTimeout(() => {
+        this.clearValidation();
+      }, 3000);
     } else {
       this.clearValidation();
     }
   }
 
-  showValidation(error) {
+  showValidation(message, type = 'error') {
     const { input, feedback } = this.elements;
-    console.log('Showing validation error:', error);
-    console.log('Feedback element:', feedback);
-    console.log('Input element:', input);
+    console.log('Showing validation:', type, message);
     
-    // Добавляем класс ошибки к input
-    input.classList.add('is-invalid');
-    
-    // Показываем текст ошибки
-    feedback.textContent = error;
-    feedback.style.display = 'block';
-    feedback.style.visibility = 'visible';
-    feedback.style.opacity = '1';
-    
-    // Проверяем, что стили применяются
-    console.log('Feedback display style:', feedback.style.display);
-    console.log('Feedback text content:', feedback.textContent);
+    if (type === 'error') {
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+      feedback.textContent = message;
+      feedback.className = 'feedback m-0 position-absolute small text-danger';
+      feedback.style.display = 'block';
+    } else if (type === 'success') {
+      input.classList.add('is-valid');
+      input.classList.remove('is-invalid');
+      feedback.textContent = message;
+      feedback.className = 'feedback m-0 position-absolute small text-success';
+      feedback.style.display = 'block';
+    }
   }
 
   clearValidation() {
     const { input, feedback } = this.elements;
     
-    // Убираем класс ошибки
-    input.classList.remove('is-invalid');
-    
-    // Скрываем текст ошибки
+    input.classList.remove('is-invalid', 'is-valid');
     feedback.textContent = '';
     feedback.style.display = 'none';
   }

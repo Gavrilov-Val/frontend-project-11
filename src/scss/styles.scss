@@ -16,6 +16,10 @@ body {
 // Хедер (темная зона сверху)
 .bg-dark {
   background-color: $bg-dark !important;
+
+  .text-muted {
+    color: $text-muted !important;
+  }
 }
 
 h1.display-3 {
