@@ -13,6 +13,6 @@ export default defineConfig([
       '**/*.min.js',
       'coverage/**',
       'build/**',
-    ]
-  }
+    ],
+  },
 ])
