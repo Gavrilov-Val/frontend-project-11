@@ -6,7 +6,6 @@ import WatchedView from './views/watchedView.js'
 import FormController from './controllers/formController.js'
 
 const initApp = async () => {
-  // Инициализируем i18next перед созданием приложения
   await i18n()
 
   const elements = {
@@ -14,10 +13,13 @@ const initApp = async () => {
     input: document.querySelector('#url-input'),
     submit: document.querySelector('button[type="submit"]'),
     feedback: document.querySelector('.feedback'),
+    feedsContainer: document.querySelector('.feeds'),
+    postsContainer: document.querySelector('.posts'),
   }
 
   const initialState = {
     feeds: [],
+    posts: [],
     form: {
       url: '',
       errorCode: null,
@@ -31,7 +33,7 @@ const initApp = async () => {
   const model = new FormModel(watchedView.getWatchedState())
   const controller = new FormController(model, formView)
 
-  console.log('RSS Aggregator with i18n initialized!')
+  console.log('RSS Aggregator with feeds/posts initialized!')
 }
 
 export default initApp
